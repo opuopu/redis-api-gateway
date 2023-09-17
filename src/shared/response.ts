@@ -2,7 +2,7 @@ import { Response } from 'express';
 
 interface IResponse {
   success: boolean;
-  statusCode: number;
+  statusCode?: number | string ;
   message?: string;
   meta?: {
     page: number;

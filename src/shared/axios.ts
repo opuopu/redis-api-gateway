@@ -1,7 +1,8 @@
 import axios, { AxiosInstance } from "axios";
+import config from "../config";
 
 
-const HttpService = (baseUrl:string):AxiosInstance =>{
+export const HttpService = (baseUrl:string):AxiosInstance =>{
     const instance  =  axios.create({
         baseURL:baseUrl,
         timeout:1000,
@@ -28,3 +29,5 @@ const HttpService = (baseUrl:string):AxiosInstance =>{
     )
 return instance
 }
+export const authService  =  HttpService(config.auth_service_url)
+export const coreService  =  HttpService(config.core_service_url)
