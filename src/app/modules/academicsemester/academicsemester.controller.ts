@@ -33,9 +33,19 @@ const getSingleById =  async(req:Request,res:Response,next:NextFunction)=>{
         next(err)
     }
 }
+const updateOneIntoDb =  async(req:Request,res:Response,next:NextFunction)=>{
+    try{
+  const result  =  await AcademicSemsterServices.updateIntoDb(req)
+  sendResponse(res,result)
+    }
+    catch(err){
+        next(err)
+    }
+}
 export const academicSemsesterController  = {
     insertIntoDb,
     getAllFromDb,
-    getSingleById
+    getSingleById,
+    updateOneIntoDb
 }
 

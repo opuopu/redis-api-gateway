@@ -24,15 +24,24 @@ const getAllFromDb=async (req:Request):Promise<IGenericResponse>=>{
     return response
 }
 const getSingleById=async (req:Request):Promise<IGenericResponse>=>{
-    const response:IGenericResponse   =  await HttpService.get('/academic-semesters',
+    const response:IGenericResponse   =  await HttpService.get(`/academic-semesters/${req.params.id}`,
 
+    )
+    return response
+}
+const updateIntoDb=async (req:Request):Promise<IGenericResponse>=>{
+    const response:IGenericResponse   =  await HttpService.patch(`/academic-semesters/${req.params.id}`,
+    req.body,
     {
-        params:req.params.id  
+        headers:{
+            Authorization:req.headers.authorization
+        }
     })
     return response
 }
 export const AcademicSemsterServices ={
     insertIntoDb,
     getAllFromDb,
-    getSingleById
+    getSingleById,
+    updateIntoDb
 }
