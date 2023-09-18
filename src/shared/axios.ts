@@ -8,14 +8,13 @@ export const HttpService = (baseUrl:string):AxiosInstance =>{
         timeout:1000,
         headers:{
             'content-type':'application/json'
-        }
-    })
+        }})
     instance.interceptors.request.use(
         (config)=>{
             return config
-        },
+     },
 (error)=>{
-    return Promise.reject(error)
+    return error
 }
     )
 
@@ -24,7 +23,7 @@ export const HttpService = (baseUrl:string):AxiosInstance =>{
             return response.data
         },
         (error)=>{
-          return error
+          return Promise.reject(error)
         }
     )
 return instance

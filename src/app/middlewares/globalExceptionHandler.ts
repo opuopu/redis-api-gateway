@@ -21,6 +21,7 @@ const globalExceptionHandler: ErrorRequestHandler = (
   let message = 'Something went wrong';
 
   if (error instanceof AxiosError) {
+  
     statusCode = error.response?.status || 500;
     message = error.response?.data?.message || 'Something went wrong';
     errorMessages = error.response?.data?.errorMessages || [];
@@ -51,7 +52,7 @@ const globalExceptionHandler: ErrorRequestHandler = (
         ]
       : [];
   }
-
+console.log(statusCode)
   res.status(statusCode).json({
     success: false,
     message,

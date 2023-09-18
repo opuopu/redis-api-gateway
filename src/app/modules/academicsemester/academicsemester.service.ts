@@ -6,12 +6,14 @@ import { IGenericResponse } from "../../../interfaces/common"
 import {Request} from 'express'
 
 const insertIntoDb =  async(req:Request):Promise<IGenericResponse> =>{
- 
+
     const response:IGenericResponse    =  await HttpService.post('/academic-semesters',req.body,{
         headers:{
             Authorization:req.headers.authorization
         }
     })
+   
+
     return response
 }
 
@@ -37,6 +39,7 @@ const updateIntoDb=async (req:Request):Promise<IGenericResponse>=>{
             Authorization:req.headers.authorization
         }
     })
+    console.log("response here")
     return response
 }
 export const AcademicSemsterServices ={

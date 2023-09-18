@@ -1,6 +1,6 @@
-// export const AcademicCodes: string[] = ['01', '02', '03']
+export const AcademicCodes: string[] = ['01', '02', '03']
 
-// export const AcademicTitles:string[] = ['Autumn', 'Fall', 'Summer']
+ export const AcademicTitles:string[] = ['Autumn', 'Fall', 'Summer']
 // export const academicsemesterTitleCodeMapper: {
 //   [key: string]: string
 // } = {
@@ -8,3 +8,20 @@
 //   Summer: '02',
 //   Fall: '03',
 // }
+
+export const academicSemesterMonth:string[] =[
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
+
+
+]
