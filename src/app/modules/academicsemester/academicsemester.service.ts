@@ -1,6 +1,4 @@
 
-import httpStatus from "http-status"
-import ApiError from "../../../errors/apiError"
 import { coreService as HttpService} from "../../../shared/axios"
 import { IGenericResponse } from "../../../interfaces/common"
 import {Request} from 'express'
