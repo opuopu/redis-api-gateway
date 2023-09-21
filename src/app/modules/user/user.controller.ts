@@ -9,7 +9,7 @@ const createStudent = async (req: Request, res: Response, next: NextFunction) =>
     if (studentPhoto) {
       req.body.profileImage = studentPhoto.secure_url;
     }
-    const result = await userServices.createStudent(req.body);
+    const result = await userServices.createStudent(req);
     sendResponse(res, result);
   } catch (err) {
     next(err);

@@ -1,0 +1,22 @@
+import { Request } from 'express';
+import { IGenericResponse } from '../../../interfaces/common';
+import { authService } from '../../../shared/axios';
+
+const LoginUser = async (req: Request): Promise<IGenericResponse> => {
+  const response: IGenericResponse = await authService.post('/auth/login', req.body);
+  return response;
+};
+const refreshToken = async (req: Request): Promise<IGenericResponse> => {
+  const { refreshToken } = req.cookies;
+  const response: IGenericResponse = await authService.post('/auth/refresh-token', req.body, {
+    headers: {
+      cookie: `refreshToken=${refreshToken}`
+    }
+  });
+  return response;
+};
+
+export const authenticationService = {
+  LoginUser,
+  refreshToken
+};
