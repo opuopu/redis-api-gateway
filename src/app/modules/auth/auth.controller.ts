@@ -33,6 +33,7 @@ const refreshToken = async (req: Request, res: Response, next: NextFunction) => 
 
     res.cookie('refreshToken', result.data.refreshToken, cookieOptions);
     const { refreshToken, ...others } = result.data;
+
     sendResponse(res, {
       statusCode: httpStatus.OK,
       success: true,
@@ -43,8 +44,18 @@ const refreshToken = async (req: Request, res: Response, next: NextFunction) => 
     next(err);
   }
 };
+const changeUserPassword = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const result = await authenticationService.changePassword(req);
+    console.log('result', result);
+    sendResponse(res, result);
+  } catch (err) {
+    next(err);
+  }
+};
 
 export const authenticationController = {
   LoginUser,
-  refreshToken
+  refreshToken,
+  changeUserPassword
 };
